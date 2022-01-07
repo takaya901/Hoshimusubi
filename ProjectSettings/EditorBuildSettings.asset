@@ -128,10 +128,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Standard Assets/ARFoundation/Scenes/SimpleAR/SimpleAR.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main.unity
     guid: afed6e7874efe447da828a4f8d5ed3b9
+  - enabled: 1
+    path: Assets/Scenes/Main_gyro.unity
+    guid: f186bf0c6714d475a8fd8f370fe928b7
+  - enabled: 0
+    path: Assets/Scenes/Main_XRRig.unity
+    guid: f854c8214e37b4c6596e0317590923bc
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 3d22e587f0ee24bbfbd12c6166bf7dae,
+      type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: f8ce26fe3bc69499b9be4b2378e97a94,
       type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 98c79e8cc22674a89a95a3a90e2b70cb,
@@ -139,4 +147,6 @@ EditorBuildSettings:
     com.unity.xr.arkit.PlayerSettings: {fileID: 11400000, guid: 2d5fb8e61571b4e3897f221189089fd6,
       type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: e2f869774b12e400996eb546603602e3,
+      type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 6352d8eb30d6f40f39bf0bf292c0f899,
       type: 2}

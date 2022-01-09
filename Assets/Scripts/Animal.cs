@@ -2,17 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 一定時間ごとに鳴く、移動する
+/// </summary>
 public class Animal : MonoBehaviour
 {
-    [SerializeField] AudioSource _cry;
-    float _timer = 5f;
+    AudioSource _voice;
+    const float CRY_INTERVAL = 5f;
+    Transform _tf;
+
+    void Start()
+    {
+        _tf = transform;
+        _voice = GetComponent<AudioSource>();
+        _tf.LookAt(Vector3.zero);
+        StartCoroutine("Cry");
+    }
 
     void Update()
     {
-        _timer -= Time.deltaTime;
-        if (_timer <= 0f) {
-            _timer = 5f;
-            _cry.Play();
+
+    }
+
+    /// <summary>
+    /// 一定時間ごとに鳴く
+    /// </summary>
+    IEnumerator Cry()
+    {
+        while (true) {
+            yield return new WaitForSeconds(CRY_INTERVAL);
+            _voice.Play();
         }
     }
 }

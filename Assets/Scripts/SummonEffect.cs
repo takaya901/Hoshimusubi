@@ -7,10 +7,12 @@ using UnityEngine.UI;
 //http://nn-hokuson.hatenablog.com/entry/2017/01/11/215346
 public class SummonEffect : MonoBehaviour
 {
-    [SerializeField] Image _img;
+    Image _img;
     bool _isFlushStart;
 
-	void Start () {
+	void Start ()
+	{
+		_img = GetComponent<Image>();
 		_img.color = Color.clear;
 	}
 

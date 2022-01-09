@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StarZodiacDictionary
 {
-    public Dictionary<int, ZodiacSigns> Star2Zodiac { get; set; } = new Dictionary<int, ZodiacSigns>();
+    public Dictionary<int, ZodiacSigns> Star2Zodiac { get; private set; } = new Dictionary<int, ZodiacSigns>();
 
     public StarZodiacDictionary()
     {

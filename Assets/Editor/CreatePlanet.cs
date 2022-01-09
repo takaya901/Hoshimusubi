@@ -15,8 +15,9 @@ namespace PlanetTest
     {
         static readonly string SPHERE_PATH = "Assets/Prefabs/Sphere.prefab";
         static readonly string CSV_PATH = "Assets/StarData/hip_constellation_line_star.csv";
-        static readonly string MATERIAL_PATH = "Assets/Materials/Emission.mat";
-        
+        static readonly string BLOOM_MAT_PATH = "Assets/Materials/Bloom.mat";
+        static readonly string BLOOM_RED_MAT_PATH = "Assets/Materials/BloomRed.mat";
+
         //シーンに星を配置
         [MenuItem("Planet/Create Planet")]
         static void Create()
@@ -26,7 +27,8 @@ namespace PlanetTest
             var starCsv = LoadAssetAtPath<TextAsset>(CSV_PATH);
             var starList = CreateHipList(starCsv);
             var starPrefab = LoadAssetAtPath<GameObject>(SPHERE_PATH);
-            var material = LoadAssetAtPath<Material>(MATERIAL_PATH);
+            var bloomMat = LoadAssetAtPath<Material>(BLOOM_MAT_PATH);
+            var bloomRedMat = LoadAssetAtPath<Material>(BLOOM_RED_MAT_PATH);
             var star2zodiac = new StarZodiacDictionary();
             
             foreach (var star in starList) 
@@ -34,18 +36,19 @@ namespace PlanetTest
                 var sphere = new GameObject();
                 
                 //設定済みの星座に含まれる星はその子に入れる．未設定の場合otherの子に入れる
-                if (!star2zodiac.Star2Zodiac.ContainsKey(star.Id)) {
-                    sphere = InstantiatePrefab(starPrefab, parents[(int)ZodiacSigns.Other].transform) as GameObject;
+                if (star2zodiac.Star2Zodiac.ContainsKey(star.Id)) {
+                    sphere = InstantiatePrefab(starPrefab, parents[(int)star2zodiac.Star2Zodiac[star.Id]].transform) as GameObject;
+                    sphere.GetComponent<Renderer>().material = bloomRedMat;
                 }
                 else {
-                    sphere = InstantiatePrefab(starPrefab, parents[(int)star2zodiac.Star2Zodiac[star.Id]].transform) as GameObject;
+                    sphere = InstantiatePrefab(starPrefab, parents[(int)ZodiacSigns.Other].transform) as GameObject;
+                    sphere.GetComponent<Renderer>().material = bloomMat;
                 }
                 
                 sphere.name = $"star {star.Id}";
                 sphere.transform.position = star.Pos;
-                sphere.transform.localScale *= star.Magnitude * star.Magnitude / 10f;
-                sphere.GetComponent<Renderer>().material = material;
-                
+                sphere.transform.localScale *= star.Magnitude * star.Magnitude;
+
                 Undo.RegisterCreatedObjectUndo(sphere, "Create " + sphere.name);
             }
         }
@@ -105,7 +108,7 @@ namespace PlanetTest
                 float sDeg = (hsH + hsM / 60f + hsS / 3600f) * (hsSgn == 0 ? -1f : 1f);
                 var rotL = Quaternion.AngleAxis(hDeg, Vector3.up);
                 var rotS = Quaternion.AngleAxis(sDeg, Vector3.right);
-                var pos = rotL * rotS * Vector3.forward * 10f;
+                var pos = rotL * rotS * Vector3.forward * 25f;
                 data = new Star(hipId, pos, Color.white, mag);
             }
             catch

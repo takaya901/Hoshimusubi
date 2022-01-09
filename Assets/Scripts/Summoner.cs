@@ -13,21 +13,11 @@ public class Summoner : MonoBehaviour
 
     void Update()
     {
-        if (!Input.GetMouseButtonDown(0)) return;
+        if (!Input.GetMouseButtonDown(0) || _magic.gameObject.activeSelf) return;
 
         // 画面をタッチした場所に向かって魔法を飛ばす
         _magic.gameObject.SetActive(true);
-
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         _magic.Direction = ray.direction;
-        //if (Physics.Raycast(ray, out var hit)) {
-        //    Summon(hit.collider.transform.parent);
-        //}
-    }
-
-    void Summon(Transform zodiacSign)
-    {
-        zodiacSign.GetComponent<ZodiacSign>().Summon();
-        _summonEffect.Play();
     }
 }

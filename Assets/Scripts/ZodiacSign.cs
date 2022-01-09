@@ -6,7 +6,6 @@ public class ZodiacSign : MonoBehaviour
 {
     [SerializeField] ZodiacSigns _zodiacSign;
     [SerializeField] GameObject _model;
-    [SerializeField] AudioSource _cry;
 
     public ZodiacSigns Zodiac => _zodiacSign;
     public GameObject Model => _model;
@@ -15,11 +14,6 @@ public class ZodiacSign : MonoBehaviour
     public void Summon()
     {
         _model.SetActive(true);
-    }
-
-    public void Cry()
-    {
-        _cry.Play();
     }
 }
 

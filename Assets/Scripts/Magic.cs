@@ -13,12 +13,13 @@ public class Magic : MonoBehaviour
     {
         _tf = transform;
         _tf.position = Vector3.zero;
+        GetComponent<AudioSource>().Play();
     }
 
     void Update()
     {
         _tf.position += Direction * _speed;
-        if (_tf.position.magnitude > 40f) {
+        if (_tf.position.magnitude > 30f) {
             gameObject.SetActive(false);
         }
     }
@@ -30,7 +31,7 @@ public class Magic : MonoBehaviour
     {
         gameObject.SetActive(false);
         collider.transform.parent.GetComponent<ZodiacSign>().Summon();
+        collider.GetComponent<Collider>().enabled = false;  //一度召喚したら星座のColliderを無効化
         _summonEffect.Play();
-        Debug.Log("hit");
     }
 }

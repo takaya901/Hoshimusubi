@@ -8,12 +8,14 @@ using UnityEngine.UI;
 public class SummonEffect : MonoBehaviour
 {
     Image _img;
+	AudioSource _se;
     bool _isFlushStart;
 
 	void Start ()
 	{
 		_img = GetComponent<Image>();
 		_img.color = Color.clear;
+		_se = GetComponent<AudioSource>();
 	}
 
 	public void Update() 
@@ -30,5 +32,6 @@ public class SummonEffect : MonoBehaviour
 	public void Play()
 	{
 		_isFlushStart = true;
+		_se.Play();
 	}
 }

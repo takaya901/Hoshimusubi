@@ -47,7 +47,7 @@ namespace PlanetTest
                 
                 sphere.name = $"star {star.Id}";
                 sphere.transform.position = star.Pos;
-                sphere.transform.localScale *= star.Magnitude * star.Magnitude;
+                sphere.transform.localScale *= star.Magnitude * star.Magnitude / 5f;
 
                 Undo.RegisterCreatedObjectUndo(sphere, "Create " + sphere.name);
             }
@@ -108,7 +108,7 @@ namespace PlanetTest
                 float sDeg = (hsH + hsM / 60f + hsS / 3600f) * (hsSgn == 0 ? -1f : 1f);
                 var rotL = Quaternion.AngleAxis(hDeg, Vector3.up);
                 var rotS = Quaternion.AngleAxis(sDeg, Vector3.right);
-                var pos = rotL * rotS * Vector3.forward * 25f;
+                var pos = rotL * rotS * Vector3.forward * 20f;
                 data = new Star(hipId, pos, Color.white, mag);
             }
             catch

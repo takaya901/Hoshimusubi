@@ -5,7 +5,6 @@ using UnityEngine;
 public class StarZodiacDictionary
 {
     public Dictionary<int, ZodiacSigns> Star2Zodiac { get; set; } = new Dictionary<int, ZodiacSigns>();
-//    Dictionary<int, ZodiacSigns> Star2Zodiac = new Dictionary<int, ZodiacSigns>();
 
     public StarZodiacDictionary()
     {
@@ -40,5 +39,30 @@ public class StarZodiacDictionary
         Star2Zodiac.Add(78401, ZodiacSigns.Scorpio);
         Star2Zodiac.Add(78820, ZodiacSigns.Scorpio);
         Star2Zodiac.Add(78265, ZodiacSigns.Scorpio);
+
+        Star2Zodiac.Add(77853, ZodiacSigns.Libra);
+        Star2Zodiac.Add(76333, ZodiacSigns.Libra);
+        Star2Zodiac.Add(74785, ZodiacSigns.Libra);
+        Star2Zodiac.Add(72622, ZodiacSigns.Libra);
+        Star2Zodiac.Add(73714, ZodiacSigns.Libra);
+
+        Star2Zodiac.Add(16228, ZodiacSigns.Cancer);
+        Star2Zodiac.Add(18505, ZodiacSigns.Cancer);
+        Star2Zodiac.Add(22783, ZodiacSigns.Cancer);
+        Star2Zodiac.Add(17959, ZodiacSigns.Cancer);
+        Star2Zodiac.Add(25110, ZodiacSigns.Cancer);
+
+        Star2Zodiac.Add(25428, ZodiacSigns.Taurus);
+        Star2Zodiac.Add(21881, ZodiacSigns.Taurus);
+        Star2Zodiac.Add(20889, ZodiacSigns.Taurus);
+        Star2Zodiac.Add(21421, ZodiacSigns.Taurus);
+        Star2Zodiac.Add(26451, ZodiacSigns.Taurus);
+        Star2Zodiac.Add(20205, ZodiacSigns.Taurus);
+        Star2Zodiac.Add(20455, ZodiacSigns.Taurus);
+        Star2Zodiac.Add(18724, ZodiacSigns.Taurus);
+        Star2Zodiac.Add(15900, ZodiacSigns.Taurus);
+        Star2Zodiac.Add(20894, ZodiacSigns.Taurus);
+        Star2Zodiac.Add(20648, ZodiacSigns.Taurus);
+        Star2Zodiac.Add(17847, ZodiacSigns.Taurus);
     }
 }

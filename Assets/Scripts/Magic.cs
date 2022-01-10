@@ -30,9 +30,9 @@ public class Magic : MonoBehaviour
     /// </summary>
     void OnTriggerEnter(Collider collider)
     {
-        gameObject.SetActive(false);
-        collider.transform.parent.GetComponent<ZodiacSign>().Summon();
-        collider.GetComponent<Collider>().enabled = false;  //一度召喚したら星座のColliderを無効化
+        gameObject.SetActive(false);    // 魔法を消す
+        collider.transform.parent.GetComponent<ZodiacSign>().Summon();  // 当たったPlaneの親のZodiacSignを取得
+        collider.GetComponent<Collider>().enabled = false;  // 一度召喚したら星座のColliderを無効化
         _summonEffect.Play();
     }
 }

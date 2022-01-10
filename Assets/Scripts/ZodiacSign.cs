@@ -10,9 +10,20 @@ public class ZodiacSign : MonoBehaviour
     public ZodiacSigns Zodiac => _zodiacSign;
     public GameObject Model => _model;
     public bool IsComplete { get; set; }
+    Connector _connector;
 
+    void Start()
+    {
+        _connector = GetComponent<Connector>();
+    }
+
+
+    /// <summary>
+    /// Magicが当たったら呼び出される
+    /// </summary>
     public void Summon()
     {
+        _connector.Connect(_zodiacSign);
         _model.SetActive(true);
     }
 }

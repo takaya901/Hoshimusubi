@@ -8,6 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using static UnityEditor.AssetDatabase;
 using static UnityEditor.PrefabUtility;
+using static StarZodiacDictionary;
 
 namespace PlanetTest
 {
@@ -29,15 +30,15 @@ namespace PlanetTest
             var starPrefab = LoadAssetAtPath<GameObject>(SPHERE_PATH);
             var bloomMat = LoadAssetAtPath<Material>(BLOOM_MAT_PATH);
             var bloomRedMat = LoadAssetAtPath<Material>(BLOOM_RED_MAT_PATH);
-            var star2zodiac = new StarZodiacDictionary();
+            var dict = new StarZodiacDictionary();
             
             foreach (var star in starList) 
             {
                 var sphere = new GameObject();
                 
                 //設定済みの星座に含まれる星はその子に入れる．未設定の場合otherの子に入れる
-                if (star2zodiac.Star2Zodiac.ContainsKey(star.Id)) {
-                    sphere = InstantiatePrefab(starPrefab, parents[(int)star2zodiac.Star2Zodiac[star.Id]].transform) as GameObject;
+                if (Star2Zodiac.ContainsKey(star.Id)) {
+                    sphere = InstantiatePrefab(starPrefab, parents[(int)Star2Zodiac[star.Id]].transform) as GameObject;
                     sphere.GetComponent<Renderer>().material = bloomRedMat;
                 }
                 else {

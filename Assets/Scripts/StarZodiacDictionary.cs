@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class StarZodiacDictionary
 {
-    public Dictionary<int, ZodiacSigns> Star2Zodiac { get; private set; } = new Dictionary<int, ZodiacSigns>();
+    /// <summary> 星が属する星座を返す </summary>
+    public static Dictionary<int, ZodiacSigns> Star2Zodiac { get; private set; } = new Dictionary<int, ZodiacSigns>();
+    /// <summary> 星座を繋ぐ線を返す </summary>
+    public static Dictionary<ZodiacSigns, List<(int star1, int star2)>> Zodiac2Connection { get; private set; } = new Dictionary<ZodiacSigns, List<(int star1, int star2)>>()
+    {
+        {ZodiacSigns.Aries, new List<(int star1, int star2)>{(13209, 9884), (9884, 8903), (8903, 8832)}},
+        {ZodiacSigns.Cancer, new List<(int star1, int star2)>{(16228, 18505), (18505, 22783), (16228, 17959), (17959, 22783), (17959, 25110)}}
+    };
 
     public StarZodiacDictionary()
     {
@@ -64,5 +71,8 @@ public class StarZodiacDictionary
         Star2Zodiac.Add(20894, ZodiacSigns.Taurus);
         Star2Zodiac.Add(20648, ZodiacSigns.Taurus);
         Star2Zodiac.Add(17847, ZodiacSigns.Taurus);
+
+        //Zodiac2Connection.Add(ZodiacSigns.Aries, new List<(int star1, int star2)>{(13209, 9884), (9884, 8903), (8903, 8832)});
+        //Zodiac2Connection.Add(ZodiacSigns.Cancer, new List<(int star1, int star2)>{(16228, 18505), (18505, 22783), (16228, 17959), (17959, 22783), (17959, 25110)});
     }
 }

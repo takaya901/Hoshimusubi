@@ -9,7 +9,7 @@ public class Maggellan : MonoBehaviour
     Vector3 _pos = Vector3.zero;
     float _distance;
     float _theta;
-    [SerializeField] float _velocity = 0.1f;
+    [SerializeField] float _velocity = 5f;
     
     void Start()
     {
@@ -19,7 +19,7 @@ public class Maggellan : MonoBehaviour
 
     void Update()
     {
-        _theta += _velocity * Deg2Rad;
+        _theta += _velocity * Time.deltaTime * Deg2Rad;
         _tf.position = new Vector3(Cos(_theta), 0f, Sin(_theta)) * _distance;
 
         //var target = new Vector3(Cos(_theta + PI/6f), 0f, Sin(_theta + PI/6f)) * _distance;

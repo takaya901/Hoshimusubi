@@ -5,8 +5,9 @@ using UnityEngine;
 public class Magic : MonoBehaviour
 {
     [SerializeField] SummonEffect _summonEffect;
-    [SerializeField] float _speed = 0.1f;
+    [SerializeField] float _speed = 5f;
     public Vector3 Direction { get; set; }
+    const float RANGE = 35f;
     Transform _tf;
 
     void OnEnable()
@@ -18,8 +19,8 @@ public class Magic : MonoBehaviour
 
     void Update()
     {
-        _tf.position += Direction * _speed;
-        if (_tf.position.magnitude > 30f) {
+        _tf.position += Direction * _speed * Time.deltaTime;
+        if (_tf.position.magnitude > RANGE) {
             gameObject.SetActive(false);
         }
     }

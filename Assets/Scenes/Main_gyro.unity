@@ -8670,7 +8670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb4ad1724b4d42ed9fbaa560c8b4e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _velocity: 0.4
+  _velocity: 8
 --- !u!1001 &263730312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26985,7 +26985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MOVE_INTERVAL: 10
   _distance: 20
-  _speed: 0.3
+  _speed: 5
 --- !u!1 &866154297
 GameObject:
   m_ObjectHideFlags: 0
@@ -60738,7 +60738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb4ad1724b4d42ed9fbaa560c8b4e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _velocity: 0.5
+  _velocity: 5
 --- !u!1001 &1925967589
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60830,7 +60830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _summonEffect: {fileID: 2077489109}
-  _speed: 0.5
+  _speed: 10
 --- !u!135 &1925967593
 SphereCollider:
   m_ObjectHideFlags: 0

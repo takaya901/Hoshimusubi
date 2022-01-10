@@ -12,7 +12,7 @@ public class Animal : MonoBehaviour
     const float CRY_INTERVAL = 5f;
     [SerializeField] float MOVE_INTERVAL = 10f;
     [SerializeField] float _distance = 30f;
-    [SerializeField] float _speed = 0.1f;
+    [SerializeField] float _speed = 5f;
     bool _isIdling;
     Transform _tf;
 
@@ -31,15 +31,8 @@ public class Animal : MonoBehaviour
 
     void Update()
     {
-        // 目的地に到達したら目的地を更新
-        //if (_tf.position == _destination) {
-        //    StartCoroutine(((Func<IEnumerator>)UpdateDestination).Method.Name);
-        //}
-        //else {
-        //    _tf.position = Vector3.MoveTowards(_tf.position, _destination, _speed * Time.deltaTime);
-        //}
         _tf.LookAt(Vector3.zero);
-        _tf.position = Vector3.MoveTowards(_tf.position, _destination, _speed);
+        _tf.position = Vector3.MoveTowards(_tf.position, _destination, _speed * Time.deltaTime);
     }
 
     /// <summary>

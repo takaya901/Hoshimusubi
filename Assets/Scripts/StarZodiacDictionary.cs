@@ -10,7 +10,11 @@ public class StarZodiacDictionary
     public static Dictionary<ZodiacSigns, List<(int star1, int star2)>> Zodiac2Connection { get; private set; } = new Dictionary<ZodiacSigns, List<(int star1, int star2)>>()
     {
         {ZodiacSigns.Aries, new List<(int star1, int star2)>{(13209, 9884), (9884, 8903), (8903, 8832)}},
-        {ZodiacSigns.Cancer, new List<(int star1, int star2)>{(16228, 18505), (18505, 22783), (16228, 17959), (17959, 22783), (17959, 25110)}}
+        {ZodiacSigns.Cancer, new List<(int star1, int star2)>{(16228, 18505), (18505, 22783), (16228, 17959), (17959, 22783), (17959, 25110)}},
+        {ZodiacSigns.Pisces, new List<(int star1, int star2)>{(4889, 5742), (4889, 6193), (6193, 5742), (5742, 7097), (7097, 8198), (8198, 9487), (9487, 8833), (8833, 7884), (7884, 7007), (7007, 4906), (4906, 3760), (3760, 1645)}},
+        {ZodiacSigns.Taurus, new List<(int star1, int star2)>{(25428, 21881), (21881, 20889), (21421, 26451), (20205, 20455), (20205, 18724), (18724, 15900), (21421, 20889), (21421, 20894), (20894, 20205), (20889, 20648), (20648, 20455), (20455, 17847)}},
+        {ZodiacSigns.Libra, new List<(int star1, int star2)>{(77853, 76333), (76333, 74785), (74785, 72622), (72622, 73714), (73714, 76333)}},
+        {ZodiacSigns.Scorpio, new List<(int star1, int star2)>{(85927, 86670), (86670, 87073), (86228, 84143), (84143, 82671), (82671, 82514), (82514, 82396), (82396, 81266), (81266, 80763), (80763, 78401), (78265, 78401), (78820, 78401), (85927, 86228)}},
     };
 
     public StarZodiacDictionary()
@@ -71,8 +75,5 @@ public class StarZodiacDictionary
         Star2Zodiac.Add(20894, ZodiacSigns.Taurus);
         Star2Zodiac.Add(20648, ZodiacSigns.Taurus);
         Star2Zodiac.Add(17847, ZodiacSigns.Taurus);
-
-        //Zodiac2Connection.Add(ZodiacSigns.Aries, new List<(int star1, int star2)>{(13209, 9884), (9884, 8903), (8903, 8832)});
-        //Zodiac2Connection.Add(ZodiacSigns.Cancer, new List<(int star1, int star2)>{(16228, 18505), (18505, 22783), (16228, 17959), (17959, 22783), (17959, 25110)});
     }
 }

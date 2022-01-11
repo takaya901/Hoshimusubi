@@ -3,13 +3,10 @@ using static StarZodiacDictionary;
 
 public class Connector : MonoBehaviour
 {
-    LineRenderer _edge;
+    [SerializeField] Material _material;
 
     void Start()
     {
-        _edge = GetComponent<LineRenderer>();
-        _edge.startWidth = 0.1f;
-        _edge.endWidth = 0.1f;
     }
 
     void Update()
@@ -46,6 +43,7 @@ public class Connector : MonoBehaviour
     LineRenderer GetNewRenderer()
     {
         var renderer = new GameObject().AddComponent<LineRenderer>();
+        renderer.material = _material;
         renderer.startWidth = 0.1f;
         renderer.endWidth = 0.1f;
         return renderer;

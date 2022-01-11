@@ -11,7 +11,7 @@ public class Animal : MonoBehaviour
     AudioSource _voice;
     const float CRY_INTERVAL = 5f;
     [SerializeField] float MOVE_INTERVAL = 10f;
-    [SerializeField] float _distance = 30f;
+    [SerializeField] float _distance = 20f;
     [SerializeField] float _speed = 5f;
     bool _isIdling;
     Transform _tf;
